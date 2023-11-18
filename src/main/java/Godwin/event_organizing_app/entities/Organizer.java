@@ -1,5 +1,6 @@
 package Godwin.event_organizing_app.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -21,7 +22,7 @@ import java.util.List;
 @Setter
 @ToString
 @Entity
-@Table(name = "event_organizer")
+@Table(name = "organizer")
 @JsonIgnoreProperties({"password", "authorities", "enabled", "credentialsNonExpired",
         "accountNonExpired", "accountNonLocked"})
 public class Organizer implements UserDetails {
@@ -41,6 +42,9 @@ public class Organizer implements UserDetails {
     @CreationTimestamp
     private Date createdAt;
 
+    @OneToMany(mappedBy = "organizer")
+    @JsonIgnore
+    private List<User> users;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
