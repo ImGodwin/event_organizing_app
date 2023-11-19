@@ -36,6 +36,7 @@ public class Organizer implements UserDetails {
     private String title;
     private String location;
     private int postsAvailable;
+    private String image;
     private Role role;
     private String password;
 

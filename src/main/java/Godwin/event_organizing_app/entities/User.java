@@ -31,7 +31,7 @@ public class User implements UserDetails {
     private List<String> users;
     @Enumerated(EnumType.STRING)
     private Role role;
-    private String image;
+
 
     @CreationTimestamp
     private Date CreatedAt;
