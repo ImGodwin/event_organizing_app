@@ -1,4 +1,11 @@
 package Godwin.event_organizing_app.exceptions;
 
-public class NotFoundException {
+public class NotFoundException extends RuntimeException{
+
+    public NotFoundException(int id){
+        super("This element with id " + id + " was not found");
+    }
+    public NotFoundException(String message){
+        super("This element with id " + message + " was not found");
+    }
 }
